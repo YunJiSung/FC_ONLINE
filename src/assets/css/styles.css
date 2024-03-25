@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+/* setting */
+@import "_reset.css";
+@import "_var.css";
+@import "_common.css";
+
+/* section */
+@import "./layout/header.css";
+@import "./layout/main.css";
