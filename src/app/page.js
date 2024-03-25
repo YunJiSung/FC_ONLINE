@@ -1,10 +1,9 @@
-
 import React from 'react'
 import Search from '@/components/Search/Search'
 
 export default function Home() {
   return (
-    <main className=''>
+    <main className='main'>
       <div className='wrap'>
         <div className='container'>
           <div>

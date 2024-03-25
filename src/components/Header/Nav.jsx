@@ -1,6 +1,6 @@
 import React from 'react'
-import { nav } from '@/constants'
 import Link from 'next/link'
+import { nav } from '@/constants'
 
 export default function Nav() {
   return (

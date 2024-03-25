@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 
 export default function Search() {
-  const [name, setName] = useState('');
+  const [name, setName] = useState(null);
+  
   const router = useRouter();
   const handleSearch = () => {
     router.push(`/user/${name}`);
