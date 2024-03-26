@@ -5,8 +5,8 @@ export default function page({params}) {
   const name = params.name;
 
   return (
-    <div>
+    <main className='main'>
       <User name={name} />
-    </div>
+    </main>
   )
 }

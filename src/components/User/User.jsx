@@ -1,10 +1,14 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Match from './Match';
 
 const User = ({ name }) => {
   const [data, setData] = useState('');
-  console.log(data);
+  // console.log(data);
+  const [matchType, setMatchType] = useState('52');
+  const [offset, setOffset] = useState('0');
+  const [limit, setLimit] = useState('5');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +43,9 @@ const User = ({ name }) => {
                 </li>
               ))}
             </ul>
+          </div>
+          <div>
+            <Match ouid={data.basic?.ouid} matchType={matchType} offset={offset} limit={limit} />
           </div>
         </div>
       ) : (
