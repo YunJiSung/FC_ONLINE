@@ -1,28 +1,44 @@
 'use client';
 
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
-const Match = ({ouid, matchType, offset, limit}) => {
-  // console.log(ouid, matchType, offset, limit);
+const Match = ({name, ouid, matchType, offset, limit}) => {
+  // console.log(name, ouid, matchType, offset, limit);
   const [data, setData] = useState('');
   console.log(data);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://open.api.nexon.com/fconline/v1/user/match?ouid=${ouid}&matchtype=${matchType}&offset=${offset}&limit=${limit}`, { headers: { 'x-nxopen-api-key': process.env.NEXON_API } });
-        setData(res.data);
+        const res = await axios.post(`/api/user/${decodeURIComponent(name)}`, {
+            ouid: ouid,
+            matchType: matchType,
+            offset: offset,
+            limit: limit
+        });
+        const data = res.data;
+        setData(data);
       } catch (error) {
         console.error('Match API Error', error);
       }
     };
 
     fetchData();
-  }, [ouid, matchType, offset, limit]);
+  }, [name, ouid, matchType, offset, limit]);
 
   return (
-    <div>Match</div>
+    <div style={{backgroundColor: "blue"}}>
+      <ul style={{display: "flex", flexWrap: "wrap"}}>
+        {data.matches?.map((match, key) => (
+          <li key={key} style={{width: "50%"}}>
+            <p>{match.matchDate}</p>
+            <p>{match.matchInfo[0].nickname}</p>
+            <p>{match.matchInfo[1].nickname}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 

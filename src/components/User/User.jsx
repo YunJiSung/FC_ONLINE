@@ -13,7 +13,7 @@ const User = ({ name }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`/api/user/${name}`);
+        const res = await fetch(`/api/user/${decodeURIComponent(name)}`);
         const data = await res.json();
         setData(data);
       } catch (error) {
@@ -45,7 +45,7 @@ const User = ({ name }) => {
             </ul>
           </div>
           <div>
-            <Match ouid={data.basic?.ouid} matchType={matchType} offset={offset} limit={limit} />
+            <Match name={name} ouid={data.basic?.ouid} matchType={matchType} offset={offset} limit={limit} />
           </div>
         </div>
       ) : (
