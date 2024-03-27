@@ -6,6 +6,11 @@
     --white100: #dbdcd8;
 
     --blue : #5383e8;
+    --blue100 : #4171D6;
+
+    --green : #05E45F;
+    
+    --mint : #29D9BF;
 
     /* 폰트 셋팅 */
     font-family: var(--font-arita), var(--font-noto), var(--font-gmarket);

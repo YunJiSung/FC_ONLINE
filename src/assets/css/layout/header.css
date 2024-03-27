@@ -4,6 +4,8 @@
     display: flex;
     align-items: center;
     background-color: var(--blue);
+    color: var(--white);
+    border-bottom: 1px solid var(--blue100);
 }
 #header .container {
     display: flex;
@@ -15,8 +17,6 @@
     font-weight: bold;
 }
 
-.nav {
+#header .nav {
     display: flex;
-
-    
 }

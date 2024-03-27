@@ -1,0 +1,11 @@
+#footer {
+  padding: 48px 0;
+  color: var(--white);
+  font-size: 0.7rem;
+}
+
+#footer > .container {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid var(--white);
+}

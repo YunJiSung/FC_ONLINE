@@ -1,21 +1,21 @@
-import React from 'react'
-import Search from '@/components/Search/Search'
+import React from 'react';
+import Search from '@/components/Search/Search';
 
 export default function Home() {
   return (
-    <main className='main'>
-      <div className='wrap'>
-        <div className='container'>
-          <div>
-            LOGO
-          </div>
+    <main id="main" className='main__page'>
+      <div className="container">
+        <div className="main__logo">
+          <h2>FC.GG</h2>
+        </div>
+        <div className="main__search">
           <Search />
-          <div className='box_wrap'>
-            <div className='box 01'>BOX1</div>
-            <div className='box 02'>BOX2</div>
-          </div>
+        </div>
+        <div className="box__wrap">
+          <div className="box left">BOX1</div>
+          <div className="box right">BOX2</div>
         </div>
       </div>
     </main>
-  )
+  );
 }
