@@ -24,6 +24,14 @@ const User = ({ name }) => {
     fetchData();
   }, [name]);
 
+  if (!data || data.length === 0) {
+    return (
+      <div className="loading">
+        <span className="loader"></span>
+      </div>
+    );
+  }
+
   return (
     <div>
       {data ? (
