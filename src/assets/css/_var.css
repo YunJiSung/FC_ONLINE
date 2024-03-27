@@ -1,6 +1,15 @@
 :root {
     --black: #000;
-    --black500: #CFCFCF;
+    --black100: #F7F7F9;
+    --black200: #ebeef1;
+    --black250: #DBE0E4;
+    --black300: #C3CBD1;
+    --black400: #9AA4AF;
+    --black500: #758592;
+    --black600: #57646F;
+    --black700: #44515C;
+    --black800: #34414D;
+    --black900: #202D37;
 
     --white: #fff;
     --white100: #dbdcd8;

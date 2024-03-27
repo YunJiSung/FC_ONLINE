@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Match from './Match';
+import Search from '../Search/Search';
 
 const User = ({ name }) => {
   const [data, setData] = useState('');
@@ -33,33 +34,41 @@ const User = ({ name }) => {
   }
 
   return (
-    <div>
-      {data ? (
-        <div>
-          성공
-          <div>
-            {data.basic?.level}
-            {data.basic?.nickname}
-          </div>
-          <div>
-            <ul>
-              {data.maxdivision?.map((el, key) => (
-                <li key={key}>
-                  <p>{el.achievementDate}</p>
-                  <p>{el.division}</p>
-                  <p>{el.matchType}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <Match name={name} ouid={data.basic?.ouid} matchType={matchType} offset={offset} limit={limit} />
+    <>
+      <div className="user__search">
+        <Search />
+      </div>
+      <div className="user">
+        <div className="user__left">
+          <div className="user__basic">
+            <div className="user__maxdivision">
+              <ul>
+                {data.maxdivision?.map((el, key) => (
+                  <li key={key}>
+                    <p>{el.achievementDate.slice(0, 7)}</p>
+                    <div className='maxdivision__point ballon'>
+                      <span>{el.division}</span>
+                      <span>{el.matchType}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <h2>{data.basic?.nickname}</h2>
+            <p>{data.basic?.level}</p>
           </div>
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
+        <div className="user__right">
+          <div className='user__matchType'>
+            <ul>
+              <li>전체</li>
+              <li>랭크</li>
+            </ul>
+          </div>
+          <Match name={name} ouid={data.basic?.ouid} matchType={matchType} offset={offset} limit={limit} />
+        </div>
+      </div>
+    </>
   );
 };
 

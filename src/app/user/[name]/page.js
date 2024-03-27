@@ -11,7 +11,9 @@ export default function page({params}) {
 
   return (
     <main id='main'>
-      <User name={name} />
+      <div className='container'>
+        <User name={name} />
+      </div>
     </main>
   )
 }

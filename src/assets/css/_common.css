@@ -1,3 +1,24 @@
+/* 공통요소 */
+.wrap {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--blue);
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: inline-block;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
 /* 로딩 */
 .loading {
   width: 100%;
@@ -28,26 +49,6 @@
   }
 }
 
-/* 공통요소 */
-.wrap {
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--blue);
-}
-
-.container {
-  width: 1280px;
-  margin: 0 auto;
-}
-
-.hidden {
-  display: inline-block;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-}
 
 /* 검색 */
 .searchBar {
@@ -80,4 +81,32 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+/* 말풍선 */
+.ballon {
+  display: none;
+  position: absolute;
+  width: 55px;
+  left: 50%;
+  top: -40px;
+  text-align: center;
+  transform: translateX(-50%);
+  background: #484848;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 5.5px;
+}
+
+
+.ballon:after {
+  border-top: 10px solid #484848;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 0px solid transparent;
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
 }

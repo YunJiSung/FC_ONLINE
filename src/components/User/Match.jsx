@@ -28,10 +28,10 @@ const Match = ({name, ouid, matchType, offset, limit}) => {
   }, [name, ouid, matchType, offset, limit]);
 
   return (
-    <div style={{backgroundColor: "blue"}}>
-      <ul style={{display: "flex", flexWrap: "wrap"}}>
+    <div className='user__match'>
+      <ul>
         {data.matches?.map((match, key) => (
-          <li key={key} style={{width: "50%"}}>
+          <li key={key}>
             <p>{match.matchDate}</p>
             <p>{match.matchInfo[0].nickname}</p>
             <p>{match.matchInfo[1].nickname}</p>
