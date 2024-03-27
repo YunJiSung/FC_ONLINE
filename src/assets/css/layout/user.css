@@ -80,9 +80,12 @@
 .user__right > .user__matchType {
   background-color: var(--white);
   border-bottom: 1px solid var(--black200);
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .user__right > .user__matchType ul {
+  width: 100%;
   display: flex;
   padding: 4px;
 }
@@ -121,6 +124,7 @@
   border-left: 5px solid var(--blue600);
 }
 
+.user__right > .user__match li.win .matchType,
 .user__right > .user__match li.win .matchResult {
   color: var(--blue600);
 }
@@ -129,6 +133,7 @@
   border-left: 5px solid var(--red600);
 }
 
+.user__right > .user__match li.lose .matchType,
 .user__right > .user__match li.lose .matchResult {
   color: var(--red600);
 }
@@ -159,6 +164,7 @@
 .user__right > .user__match .matchCenter__right {
   width: 45%;
   display: flex;
+  font-weight: bold;
   transition: color 0.3s;
 }
 .user__right > .user__match .matchCenter__left a:hover,

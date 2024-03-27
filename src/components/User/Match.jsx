@@ -62,15 +62,15 @@ const Match = ({ name, ouid, searchName, matchList }) => {
       <div className="user__match">
         <ul>
           {data.matches?.map((match, key) => (
-            <li key={key} className={match.matchInfo.find((obj) => obj.nickname === searchName).matchDetail.matchResult === '승' ? 'win' : 'lose'}>
+            <li key={key} className={match.matchInfo.find((item) => item.nickname === searchName).matchDetail.matchResult === '승' ? 'win' : 'lose'}>
               <div className="match__left">
                 <div className="matchLeft__top">
-                  <p className="matchType">{match.matchType === 50 ? '공식경기' : ''}</p>
+                  <p className="matchType">{matchList.find((item) => item.matchtype === match.matchType).desc}</p>
                   <p className="matchDate">{timeAgo(match.matchDate)}</p>
                 </div>
                 <div className="line50" />
                 <div className="matchLeft__bottom">
-                  <p className="matchResult">{match.matchInfo.find((obj) => obj.nickname === searchName).matchDetail.matchResult}</p>
+                  <p className="matchResult">{match.matchInfo.find((item) => item.nickname === searchName).matchDetail.matchResult}</p>
                 </div>
               </div>
               <div className="match__center">
