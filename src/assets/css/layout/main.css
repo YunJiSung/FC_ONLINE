@@ -15,6 +15,11 @@
   margin: 0 auto;
 }
 
+.main__search > .searchBar input {
+  padding: 0 30px;
+  border-radius: 30px;
+}
+
 .box__wrap {
   width: 100%;
   min-height: 400px;
@@ -30,4 +35,18 @@
 
 .box__wrap > .box.left {
   margin-right: 5px;
+}
+
+@media(max-width: 1280px) {
+  .main__search {
+    width: 90%;
+  }
+
+  .box__wrap {
+    display: block;
+  }
+
+  .box__wrap > .box.left {
+    margin: 0 0 5px;
+  }
 }

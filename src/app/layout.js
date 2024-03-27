@@ -19,14 +19,14 @@ export const metadata = {
   icons: {
     icon: 'favicon.svg',
   },
-  metadataBase: new URL('https://mangjeun.kro.kr'),
-  images:'https://www.mangjeun.kro.kr/image/meta/mangjeun.jpg',
+  metadataBase: new URL('https://fconline.vercel.app/'),
+  images:'https://fconline.vercel.app/image/meta/meta.jpg',
   openGraph: {
     title: 'FC 온라인 검색 사이트 - FC.GG',
     description: 'FC 온라인 검색 사이트',
-    url: 'https://mangjeun.kro.kr',
-    siteName: 'MangJeun',
-    images:'https://www.mangjeun.kro.kr/image/meta/mangjeun.jpg',
+    url: 'https://fconline.vercel.app/r',
+    siteName: 'FC.GG',
+    images:'https://fconline.vercel.app/image/meta/meta.jpg',
     locale: 'ko_KR',
     type: 'website',
     type: 'article',
@@ -59,7 +59,7 @@ export const metadata = {
     title: 'FC 온라인 검색 사이트 - FC.GG',
     description: 'FC 온라인 검색 사이트',
     images: [
-      'https://www.mangjeun.kro.kr/image/meta/mangjeun.jpg',
+      'https://fconline.vercel.app/image/meta/meta.jpg',
     ],
   },
 };

@@ -1,14 +1,3 @@
-.user__search {
-  width: 100%;
-  height: 30px;
-}
-
-.user__search > .searchBar button {
-  width: 60px;
-  height: 30px;
-  background-size: 15px;
-}
-
 .user {
   margin-top: 10px;
   display: flex;
@@ -43,11 +32,30 @@
 
 .user__right {
   flex-basis: 69%;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: var(--white);;
 }
 
 .user__right > .user__matchType ul {
   display: flex;
+  padding: 4px;
+}
+
+.user__right > .user__matchType li {
+  margin-right: 4px;
+  padding: 4px 12px;
+  color: var(--black400);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.user__right > .user__matchType li:last-child {
+  margin-right: 0;
+}
+
+.user__right > .user__matchType li:hover,
+.user__right > .user__matchType li.active {
+  color: var(--blue);
+  background-color: var(--blue200)
 }
 
 .user__right > .user__match li {

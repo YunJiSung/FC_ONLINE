@@ -16,7 +16,3 @@ git push -u origin 지성
 
 git pull origin(git checkout 지성을 한 상태) main(main내용을 지성으로 댕겨오는거)
 ```
-```
-ouid 임시 사용
-b7d39a3bfd4001b222c337cf637ca090
-```

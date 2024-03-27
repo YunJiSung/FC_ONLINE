@@ -1,5 +1,5 @@
 :root {
-    --black: #000;
+    --black: #333;
     --black100: #F7F7F9;
     --black200: #ebeef1;
     --black250: #DBE0E4;
@@ -15,7 +15,15 @@
     --white100: #dbdcd8;
 
     --blue : #5383e8;
-    --blue100 : #4171D6;
+    --blue100: #ECF2FF;
+    --blue200: #D5E3FF;
+    --blue300: #B3CDFF;
+    --blue400: #81ACFF;
+    --blue500: #5383E8;
+    --blue600: #4171D6;
+    --blue700: #2F5EC0;
+    --blue800: #2F436E;
+    --blue900: #28344E;
 
     --green : #05E45F;
     
@@ -35,9 +43,9 @@
     -webkit-text-size-adjust: 100%;
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
     :root {
         font-size: 14px;
         line-height: 1.4;
     }
-}
+} */
