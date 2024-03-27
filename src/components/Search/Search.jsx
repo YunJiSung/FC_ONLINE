@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 
 export default function Search() {
-  const [name, setName] = useState(null);
+  const [name, setName] = useState('');
 
   const router = useRouter();
   const handleSearch = () => {
@@ -21,6 +20,7 @@ export default function Search() {
         type="text"
         placeholder="유저명을 입력해주세요."
         value={name}
+        autoComplete='on'
         onChange={(e) => setName(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {

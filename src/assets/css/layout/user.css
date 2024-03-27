@@ -6,13 +6,20 @@
 
 .user__left {
   width: 30%;
-  background-color: rgba(0, 0, 0, 0.15);
+  min-width: 280px;
 }
 
 .user > .user__left .user__basic {
   width: 100%;
+  padding: 12px;
   background-color: var(--white);
 }
+
+.user > .user__left .user__maxdivision {
+  display: flex;
+  align-items: center;
+}
+
 .user > .user__left .user__maxdivision ul {
   display: flex;
 }
@@ -30,9 +37,49 @@
   display: inline-block;
 }
 
+.user > .user__left .use__info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+
+.user > .user__left .use__info img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+}
+
+.user > .user__left .use__info h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.user > .user__left .use__info span {
+  font-size: 0.9rem;
+  color: var(--black400);
+}
+
+.user__ad {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.ad__01 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 100px;
+}
+
 .user__right {
   flex-basis: 69%;
-  background-color: var(--white);;
+}
+
+.user__right > .user__matchType {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--black200);
 }
 
 .user__right > .user__matchType ul {
@@ -46,6 +93,7 @@
   color: var(--black400);
   cursor: pointer;
   border-radius: 4px;
+  transition: all 0.3s;
 }
 
 .user__right > .user__matchType li:last-child {
@@ -55,12 +103,118 @@
 .user__right > .user__matchType li:hover,
 .user__right > .user__matchType li.active {
   color: var(--blue);
-  background-color: var(--blue200)
+  background-color: var(--blue200);
 }
 
 .user__right > .user__match li {
   width: 100%;
   height: 100px;
-  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
   margin-bottom: 10px;
+  padding: 0 12px;
+  background-color: var(--white);
+}
+
+.user__right > .user__match li.win {
+  border-left: 5px solid var(--blue600);
+}
+
+.user__right > .user__match li.win .matchResult {
+  color: var(--blue600);
+}
+
+.user__right > .user__match li.lose {
+  border-left: 5px solid var(--red600);
+}
+
+.user__right > .user__match li.lose .matchResult {
+  color: var(--red600);
+}
+
+.user__right > .user__match .match__left {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.user__right > .user__match .matchType,
+.user__right > .user__match .matchResult {
+  font-weight: bold;
+}
+
+.user__right > .user__match .matchDate {
+  color: var(--black400);
+}
+
+.user__right > .user__match .match__center {
+  display: flex;
+  flex: 1 1 0%;
+}
+
+.user__right > .user__match .matchCenter__left,
+.user__right > .user__match .matchCenter__right {
+  width: 45%;
+  display: flex;
+  transition: color 0.3s;
+}
+.user__right > .user__match .matchCenter__left a:hover,
+.user__right > .user__match .matchCenter__right a:hover {
+  color: var(--blue600);
+}
+
+.user__right > .user__match .matchCenter__left {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+.user__right > .user__match .left__detail {
+  display: flex;
+}
+.user__right > .user__match .left__detail > div {
+  flex-grow: 1;
+}
+
+.user__right > .user__match .matchCenter__center {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user__right > .user__match .matchCenter__right {
+  text-align: left;
+}
+
+.user__right > .user__match .more {
+  width: 100%;
+  height: 50px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--black400);
+  background-color: var(--black100);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.user__right > .user__match .more:hover {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+@media (max-width: 800px) {
+  .user {
+    display: block;
+  }
+
+  .user__left {
+    width: 100%;
+  }
+
+  .user__right {
+    margin-top: 10px;
+  }
 }
