@@ -5,6 +5,10 @@
   background-color: var(--blue);
 }
 
+#main {
+  min-height: calc(100vh - 242px);
+}
+
 .container {
   width: 1280px;
   margin: 0 auto;
@@ -132,5 +136,11 @@
 @media(max-width: 1280px) {
   .container {
     width: 100%;
+  }
+}
+
+@media(max-width: 600px) {
+  #main {
+    min-height: calc(100vh - 273px);
   }
 }

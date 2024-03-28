@@ -6,6 +6,13 @@
   background-color: var(--blue);
   color: var(--white);
   border-bottom: 1px solid var(--blue600);
+  box-sizing: border-box;
+}
+
+#header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #header .header__top {
@@ -47,16 +54,33 @@
 
 
 #header .user__search {
-  width: 100%;
+  width: 300px;
   height: 30px;
+  display: flex;
+}
+
+#header .user__search > .searchBar {
+  height: inherit;
+  flex: 1 1 0%;
 }
 
 #header .user__search > .searchBar input {
-  padding: 0 15px;
+  width: 100%;
+  padding: 0 60px 0 15px;
 }
 
 #header .user__search > .searchBar button {
   width: 60px;
   height: 30px;
   background-size: 15px;
+}
+
+@media (max-width: 600px) {
+  #header .container {
+    display: block;
+  }
+
+  #header .user__search {
+    width: 100%;
+  }
 }

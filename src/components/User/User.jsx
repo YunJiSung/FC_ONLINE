@@ -12,27 +12,27 @@ const User = ({ name }) => {
 
   const divisionImg = (divisionPoint) => {
     const divisionMapping = {
-      800 : 'rank0',
-      900 : 'rank1',
-      1000 : 'rank2',
-      1100 : 'rank3',
-      1200 : 'rank4',
-      1300 : 'rank5',
-      2000 : 'rank6',
-      2100 : 'rank7',
-      2200 : 'rank8',
-      2300 : 'rank9',
-      2400 : 'rank10',
-      2500 : 'rank11',
-      2600 : 'rank12',
-      2700 : 'rank13',
-      2800 : 'rank14',
-      2900 : 'rank15',
-      3000 : 'rank16',
-      3100 : 'rank17',
-    }
+      800: 'rank0',
+      900: 'rank1',
+      1000: 'rank2',
+      1100: 'rank3',
+      1200: 'rank4',
+      1300: 'rank5',
+      2000: 'rank6',
+      2100: 'rank7',
+      2200: 'rank8',
+      2300: 'rank9',
+      2400: 'rank10',
+      2500: 'rank11',
+      2600: 'rank12',
+      2700: 'rank13',
+      2800: 'rank14',
+      2900: 'rank15',
+      3000: 'rank16',
+      3100: 'rank17',
+    };
     return divisionMapping[divisionPoint] || '';
-  }
+  };
 
   // 유저 조회
   useEffect(() => {
@@ -100,7 +100,7 @@ const User = ({ name }) => {
                 <li key={key}>
                   <p>{matchType.find((item) => item.matchtype === el.matchType)?.desc} 최고 등급</p>
                   <div className="maxdivision__point ballon">
-                    <p>{matchType.find((item) => item.matchtype === el.matchType)?.desc}</p>
+                    <p>{el.achievementDate.slice(0, 7)}</p>
                     <span>{division.find((item) => item.divisionId === el.division)?.divisionName}</span>
                   </div>
                 </li>
@@ -108,17 +108,15 @@ const User = ({ name }) => {
             </ul>
           </div>
           <div className="use__info">
-            <div className="rank">
-              <Image src={`/images/rank/ico_${divisionImg(data.maxdivision[0]?.division)}.png`} width={100} height={100} alt='' />
-            </div>
+            <div className="rank">{!data.maxdivision || data.maxdivision.length === 0 ? '' : <Image src={`/images/rank/ico_${divisionImg(data.maxdivision[0]?.division)}.png`} width={100} height={100} alt='디비전 랭크' />}</div>
             <div className="info">
               <h2>{data.basic?.nickname}</h2>
               <span>Lv.{data.basic?.level}</span>
             </div>
           </div>
         </div>
-        <aside className='user__ad'>
-          <div className='ad__01'>AD</div>
+        <aside className="user__ad">
+          <div className="ad__01">AD</div>
         </aside>
       </div>
       <div className="user__right">

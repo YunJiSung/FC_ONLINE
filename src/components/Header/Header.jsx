@@ -17,7 +17,7 @@ export default function Header() {
           </Link>
           <Nav />
         </div>
-        {pathName.startsWith('/user/') ? (
+        {pathName !== '/'  ? (
           <div className="user__search">
             <Search />
           </div>

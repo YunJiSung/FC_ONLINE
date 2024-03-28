@@ -109,7 +109,7 @@
   background-color: var(--blue200);
 }
 
-.user__right > .user__match li {
+.user__right > .user__match > ul > li {
   width: 100%;
   height: 100px;
   display: flex;
@@ -157,6 +157,7 @@
 
 .user__right > .user__match .match__center {
   display: flex;
+  align-items: center;
   flex: 1 1 0%;
 }
 
@@ -164,6 +165,7 @@
 .user__right > .user__match .matchCenter__right {
   width: 45%;
   display: flex;
+  align-items: center;
   font-weight: bold;
   transition: color 0.3s;
 }
@@ -177,12 +179,25 @@
   display: flex;
   justify-content: flex-end;
 }
-.user__right > .user__match .left__detail {
+
+.user__right > .user__match .left__detail > ul,
+.user__right > .user__match .right__detail > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user__right > .user__match .left__detail > ul > li,
+.user__right > .user__match .right__detail > ul > li {
+  width: 50%;
   display: flex;
 }
-.user__right > .user__match .left__detail > div {
-  flex-grow: 1;
+
+.user__right > .user__match .left__detail > ul > li > span,
+.user__right > .user__match .right__detail > ul > li > span {
+  display: inline-block;
+  font-size: 9px;
 }
+
 
 .user__right > .user__match .matchCenter__center {
   width: 10%;
@@ -210,6 +225,19 @@
   color: var(--black);
   background-color: var(--white);
 }
+
+
+.user__right > .user__match .notData {
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--black400);
+  background-color: var(--white);
+}
+
 
 @media (max-width: 800px) {
   .user {
