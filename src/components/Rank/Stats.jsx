@@ -1,44 +1,19 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from 'react';
+import { useData } from '@/context/DataContext';
+import Image from 'next/image';
 
 const Stats = () => {
-  const [matchList, setMatchList] = useState([]);
+  const [data, setData] = useState('');
+  const { matchData, positionData, spidData, seasonData } = useData();
+  // console.log(seasonData);
   const [matchType, setMatchType] = useState('');
-  const [positions, setPositions] = useState([]);
-  const [category, setCategory] = useState('');
-  const [spids, setSpids] = useState([]);
-
-  // 매치 종류
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://open.api.nexon.com/static/fconline/meta/matchtype.json');
-        const data = await response.json();
-        // console.log(data);
-        setMatchList(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  // console.log(matchList);
-
-  // Position
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('https://open.api.nexon.com/static/fconline/meta/spposition.json');
-        const data = await res.json();
-        setPositions(data);
-      } catch (error) {
-        console.error('Fetch API Error', error);
-      }
-    };
-    fetchData();
-  }, []);
+  const [category, setCategory] = useState('공격수');
+  const [keyword, setKeyword] = useState('');
+  const [selectPlayer, setSelectPlayer] = useState('');
+  const [filterPlayer, setFilterPlayer] = useState();
+  console.log(`매치타입 : ${matchType}, 포지션 : ${category}, 검색어 : ${keyword}, 클릭선택 : ${selectPlayer.id} ${selectPlayer.name}`)
 
   const positionCategories = {
     공격수: ['ST', 'CF', 'RF', 'LF', 'RS', 'LS', 'RW', 'LW'],
@@ -53,28 +28,25 @@ const Stats = () => {
   };
 
   // 선택된 카테고리에 따라 포지션 필터링
-  const filteredPositions = positions.filter(pos =>
-    positionCategories[category]?.includes(pos.desc)
-  );
+  const filteredPositions = positionData.filter((pos) => positionCategories[category]?.includes(pos.desc));
 
-  // spid
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('https://open.api.nexon.com/static/fconline/meta/spid.json');
-        const data = await res.json();
-        setSpids(data);
-      } catch (error) {
-        console.error('Fetch API Error', error);
-      }
-    };
-    fetchData();
-  }, []);
-  console.log(spids);
-
+  // Enter 검색
   const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const filteredPlayers = spidData.filter((item) => item.name.includes(keyword));
+      if (filteredPlayers) {
+        setFilterPlayer(filteredPlayers);
+      } else {
+        console.log(없음);
+      }
+    }
+  };
 
-  }
+  // 클릭
+  const hadlePlayerClick = (item) => {
+    setSelectPlayer(item);
+  };
 
   // if (!data || data.length === 0) {
   //   return (
@@ -88,7 +60,7 @@ const Stats = () => {
     <div>
       <div className="user__matchType">
         <ul>
-          {matchList.map((el, key) => (
+          {matchData.map((el, key) => (
             <li className={matchType === el.matchtype ? 'active' : ''} key={key} value={el.matchtype} onClick={(e) => setMatchType(e.target.value)}>
               {el.desc}
             </li>
@@ -97,33 +69,45 @@ const Stats = () => {
         </ul>
       </div>
       <div>
-        <label htmlFor="pos1" className="hidden">포지션1</label>
+        <label htmlFor="pos1" className="hidden">
+          포지션1
+        </label>
         <select name="pos1" id="pos1" onChange={handleCategoryChange}>
-          <option value="">선택하세요</option>
           <option value="공격수">공격수</option>
           <option value="수비수">수비수</option>
           <option value="미드필더">미드필더</option>
           <option value="골키퍼">골키퍼</option>
         </select>
 
-        <label htmlFor="pos2" className="hidden">포지션2</label>
+        <label htmlFor="pos2" className="hidden">
+          포지션2
+        </label>
         <select name="pos2" id="pos2">
-          {filteredPositions.map(pos => (
-            <option value={pos.spposition} key={pos.spposition}>{pos.desc}</option>
-          ))}s
+          {filteredPositions.map((pos) => (
+            <option value={pos.spposition} key={pos.spposition}>
+              {pos.desc}
+            </option>
+          ))}
+          s
         </select>
 
-        <label htmlFor="search" className="hidden">선수 검색</label>
-        <input
-          type="text"
-          // value={ }
-          placeholder="선수 이름을 입력해주세요."
-          // onKeyDown={(e) => {
-          //   if (e.key === 'Enter') {
-          //     handleSearch();
-          //   }
-          // }}
-          />
+        <label htmlFor="search" className="hidden">
+          선수 검색
+        </label>
+        <input type="text" value={keyword} placeholder="선수 이름을 입력해주세요." onChange={(e) => setKeyword(e.target.value)} onKeyDown={handleSearch} />
+        <div>
+          <ul>
+            {filterPlayer?.map((item, key) => (
+              <li key={key} onClick={() => hadlePlayerClick(item)} style={{display: 'flex'}}>
+                <div style={{ maxWidth: '16px' }}>
+                  <Image src={seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.seasonImg} width={16} height={13} alt={`${seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.className} ${item.name}`} />
+                </div>
+                <span>{item.name}</span>
+              </li>
+            ))}
+            <li></li>
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -20,7 +20,6 @@ export default function Search() {
         type="text"
         placeholder="유저명을 입력해주세요."
         value={name}
-        autoComplete='on'
         onChange={(e) => setName(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {

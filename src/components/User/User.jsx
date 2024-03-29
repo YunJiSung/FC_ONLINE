@@ -3,12 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import Match from './Match';
 import Image from 'next/image';
+import { useData } from '@/context/DataContext';
 
 const User = ({ name }) => {
   const [data, setData] = useState('');
-  // console.log(data);
-  const [division, setDivision] = useState('');
-  const [matchType, setMatchType] = useState('');
+  const {divisionData, matchData} = useData();
 
   const divisionImg = (divisionPoint) => {
     const divisionMapping = {
@@ -50,38 +49,6 @@ const User = ({ name }) => {
     fetchData();
   }, [name]);
 
-  // 등급 조회
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://open.api.nexon.com/static/fconline/meta/division.json');
-        const data = await response.json();
-        // console.log(data);
-        setDivision(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, [name]);
-
-  // 매치 종류
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://open.api.nexon.com/static/fconline/meta/matchtype.json');
-        const data = await response.json();
-        // console.log(data);
-        setMatchType(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   if (!data || data.length === 0) {
     return (
       <div className="loading">
@@ -98,10 +65,10 @@ const User = ({ name }) => {
             <ul>
               {data.maxdivision?.map((el, key) => (
                 <li key={key}>
-                  <p>{matchType.find((item) => item.matchtype === el.matchType)?.desc} 최고 등급</p>
+                  <p>{matchData.find((item) => item.matchtype === el.matchType)?.desc} 최고 등급</p>
                   <div className="maxdivision__point ballon">
                     <p>{el.achievementDate.slice(0, 7)}</p>
-                    <span>{division.find((item) => item.divisionId === el.division)?.divisionName}</span>
+                    <span>{divisionData.find((item) => item.divisionId === el.division)?.divisionName}</span>
                   </div>
                 </li>
               ))}
@@ -120,7 +87,7 @@ const User = ({ name }) => {
         </aside>
       </div>
       <div className="user__right">
-        <Match name={name} ouid={data.basic?.ouid} searchName={data.basic?.nickname} matchList={matchType} />
+        <Match name={name} ouid={data.basic?.ouid} searchName={data.basic?.nickname} matchList={matchData} />
       </div>
     </div>
   );

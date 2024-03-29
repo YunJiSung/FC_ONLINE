@@ -2,6 +2,7 @@ import { Noto_Sans_KR } from 'next/font/google';
 import '../assets/css/styles.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import { DataProvider } from '@/context/DataContext';
 
 const notoSans = Noto_Sans_KR({ subsets: ['latin'], variable: '--font-noto', weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] });
 
@@ -20,13 +21,13 @@ export const metadata = {
     icon: 'favicon.svg',
   },
   metadataBase: new URL('https://fconline.vercel.app/'),
-  images:'https://fconline.vercel.app/image/meta/meta.jpg',
+  images: 'https://fconline.vercel.app/image/meta/meta.jpg',
   openGraph: {
     title: 'FC 온라인 검색 사이트 - FC.GG',
     description: 'FC 온라인 검색 사이트',
     url: 'https://fconline.vercel.app/r',
     siteName: 'FC.GG',
-    images:'https://fconline.vercel.app/image/meta/meta.jpg',
+    images: 'https://fconline.vercel.app/image/meta/meta.jpg',
     locale: 'ko_KR',
     type: 'website',
     type: 'article',
@@ -58,9 +59,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'FC 온라인 검색 사이트 - FC.GG',
     description: 'FC 온라인 검색 사이트',
-    images: [
-      'https://fconline.vercel.app/image/meta/meta.jpg',
-    ],
+    images: ['https://fconline.vercel.app/image/meta/meta.jpg'],
   },
 };
 
@@ -69,9 +68,11 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <body className={notoSans.className}>
         <div className="wrap">
-          <Header />
-          {children}
-          <Footer />
+          <DataProvider>
+            <Header />
+            {children}
+            <Footer />
+          </DataProvider>
         </div>
       </body>
     </html>

@@ -161,55 +161,46 @@
   flex: 1 1 0%;
 }
 
-.user__right > .user__match .matchCenter__left,
-.user__right > .user__match .matchCenter__right {
-  width: 45%;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  transition: color 0.3s;
+.user__right > .user__match .matchCenter__left {
+  font-size: 0.7rem;
+  color: var(--black400);
 }
-.user__right > .user__match .matchCenter__left a:hover,
-.user__right > .user__match .matchCenter__right a:hover {
+
+.user__right > .user__match .matchCenter__left span {
+  margin-right: 5px;
+}
+
+.user__right > .user__match li.win .matchCenter__left .rating {
+  font-size: 0.8rem;
+  font-weight: bold;
   color: var(--blue600);
 }
 
-.user__right > .user__match .matchCenter__left {
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
+.user__right > .user__match li.lose .matchCenter__left .rating {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--red600);
 }
 
-.user__right > .user__match .left__detail > ul,
-.user__right > .user__match .right__detail > ul {
+.user__right > .user__match .matchCenter__center .player {
   display: flex;
   flex-wrap: wrap;
 }
 
-.user__right > .user__match .left__detail > ul > li,
-.user__right > .user__match .right__detail > ul > li {
-  width: 50%;
-  display: flex;
+.user__right > .user__match .matchCenter__center .player li {
+  width: 33.333%;
 }
 
-.user__right > .user__match .left__detail > ul > li > span,
-.user__right > .user__match .right__detail > ul > li > span {
-  display: inline-block;
-  font-size: 9px;
-}
-
-
-.user__right > .user__match .matchCenter__center {
-  width: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.user__right > .user__match .matchCenter__center .player img {
+  width: 1rem;
+  height: 1rem;
 }
 
 .user__right > .user__match .matchCenter__right {
   text-align: left;
 }
 
+/* 더보기 */
 .user__right > .user__match .more {
   width: 100%;
   height: 50px;
