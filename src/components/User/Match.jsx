@@ -180,8 +180,8 @@ const Match = ({ name, ouid, searchName, matchList }) => {
                 <div className="match__right">
                   <button type="button">&gt;</button>
                 </div>
-
-                {/* <ul className="player">
+{/* 
+                <ul className="player">
                   {match.matchInfo[0]?.player.map((el, key) => (
                     <li key={key}>
                       <Image src={`https://fco.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p${el.spId}.png`} width={15} height={15} alt="선수 이미지" />

@@ -4,7 +4,9 @@ import Stats from '@/components/Rank/Stats'
 export default function page() {
   return (
     <main id='main'>
-      <Stats />
+      <div className='container'>
+        <Stats />
+      </div>
     </main>
   )
 }

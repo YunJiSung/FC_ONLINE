@@ -4,8 +4,8 @@ export const nav = [
         href : "/"
     },
     {
-        name : "랭킹",
-        href : "/rank"
+        name : "스탯",
+        href : "/stats"
     }
 ]
 
