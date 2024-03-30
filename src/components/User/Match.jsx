@@ -90,7 +90,7 @@ const Match = ({ name, ouid, searchName }) => {
                   <div className="matchCenter__center">
                     <ul className="player">
                       {/* 시즌아이콘 */}
-                      {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
+                      {/* {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
                           const playerName = spidData.find((player) => player.id === el.spId)?.name;
                           return (
                             <li key={key}>
@@ -98,10 +98,10 @@ const Match = ({ name, ouid, searchName }) => {
                               <span>{playerName}</span>
                             </li>
                           );
-                        })}
+                        })} */}
 
                       {/* 선수사진 */}
-                      {/* {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
+                      {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
                           const playerName = spidData.find((player) => player.id === el.spId)?.name;
                           return (
                             <li key={key}>
@@ -109,7 +109,7 @@ const Match = ({ name, ouid, searchName }) => {
                               <span>{playerName}</span>
                             </li>
                           );
-                        })} */}
+                        })}
                     </ul>
                   </div>
                   <div className="matchCenter__right"></div>
