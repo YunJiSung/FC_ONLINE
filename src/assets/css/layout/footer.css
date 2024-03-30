@@ -40,3 +40,9 @@
 #footer .footer__nav li:last-child:after {
   display: none;
 }
+
+@media(max-width: 1280px) {
+  #footer > .container {
+    padding: 25px 12px 0 12px;
+  }
+}

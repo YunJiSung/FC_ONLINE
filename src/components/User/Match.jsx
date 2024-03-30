@@ -9,7 +9,7 @@ import { useData } from '@/context/DataContext';
 
 const Match = ({ name, ouid, searchName }) => {
   const [data, setData] = useState('');
-  const {spidData, matchData} = useData();
+  const {spidData, matchData, seasonData} = useData();
   const [matchType, setMatchType] = useState(50);
   const [offset, setOffset] = useState('0');
   const [limit, setLimit] = useState('1');
@@ -89,7 +89,19 @@ const Match = ({ name, ouid, searchName }) => {
                   </div>
                   <div className="matchCenter__center">
                     <ul className="player">
+                      {/* 시즌아이콘 */}
                       {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
+                          const playerName = spidData.find((player) => player.id === el.spId)?.name;
+                          return (
+                            <li key={key}>
+                              <Image src={seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.seasonImg} width={16} height={13} alt={`${seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.className} ${item.name}`} />
+                              <span>{playerName}</span>
+                            </li>
+                          );
+                        })}
+
+                      {/* 선수사진 */}
+                      {/* {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
                           const playerName = spidData.find((player) => player.id === el.spId)?.name;
                           return (
                             <li key={key}>
@@ -97,7 +109,7 @@ const Match = ({ name, ouid, searchName }) => {
                               <span>{playerName}</span>
                             </li>
                           );
-                        })}
+                        })} */}
                     </ul>
                   </div>
                   <div className="matchCenter__right"></div>
