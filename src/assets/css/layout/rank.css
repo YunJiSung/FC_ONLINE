@@ -1,0 +1,110 @@
+.rank__matchType {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--black200);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.rank__matchType ul {
+    width: 100%;
+    display: flex;
+    padding: 4px;
+}
+.rank__matchType li {
+    margin-right: 4px;
+    padding: 4px 12px;
+    color: var(--black400);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+.rank__matchType li:last-child {
+    margin-right: 0;
+}
+.rank__matchType li:hover,
+.rank__matchType li.active {
+    color: var(--blue);
+    background-color: var(--blue200);
+}
+
+.rank__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    margin-bottom: 8px;
+    background-color: var(--white);
+}
+.rank__position {
+    display: flex;
+    align-items: center;
+}
+
+.rank__position select {
+    position: relative;
+    height: 40px;
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid var(--black100);
+    padding: 0 12px;
+    color: var(--black400);
+}
+
+.rank__position select:hover {
+    background-color: var(--black200);
+}
+
+.rank__position select::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    z-index: 100;
+}
+
+.rank__position select#pos1 {
+    margin-right: 4px;
+}
+
+.rank__search input{
+    height: 40px;
+    padding: 0 12px 0 40px;
+    border: 1px solid var(--black250);
+    position: relative;
+}
+
+.rank__search input::before {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    z-index: 100;
+}
+
+.rank__result ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.rank__result li {
+    width: 46px;
+}
+
+.rank__result .result__player img {
+    width: 46px;
+    height: 46px;
+}
+
+.search__name {
+    width: 46px;
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+}
