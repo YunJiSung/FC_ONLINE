@@ -9,7 +9,7 @@ export default function Header() {
   const pathName = usePathname();
 
   return (
-    <header id="header">
+    <header id="header" role="banner">
       <div className="container">
         <div className="header__top">
           <Link href="/">

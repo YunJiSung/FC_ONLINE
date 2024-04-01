@@ -3,7 +3,7 @@ import Stats from '@/components/Rank/Stats'
 
 export default function page() {
   return (
-    <main id='main'>
+    <main id='main' role="main">
       <div className='container'>
         <Stats />
       </div>

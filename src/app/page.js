@@ -3,7 +3,7 @@ import Search from '@/components/Search/Search';
 
 export default function Home() {
   return (
-    <main id="main" className='main__page'>
+    <main id="main" className='main__page' role="main">
       <div className="container">
         <div className="main__logo">
           <h2>FC.GG</h2>

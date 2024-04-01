@@ -115,7 +115,7 @@ const Stats = () => {
 
               <div className='search__name ellipsis'>
                 <Image src={seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.seasonImg} width={16} height={13} alt={`${seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.className} ${item.name}`} />
-                <span><Link href={`/rank/staus/${matchType}${po${item.name}`}>{item.name}</Link></span>
+                {/* <span><Link href={`/rank/staus/${matchType}${po${item.name}`}>{item.name}</Link></span> */}
               </div>
             </li>
           ))}

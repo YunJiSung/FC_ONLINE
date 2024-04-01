@@ -10,7 +10,7 @@ export default function page({params}) {
   const name = params.name;
 
   return (
-    <main id='main'>
+    <main id='main' role="main">
       <div className='container'>
         <User name={name} />
       </div>

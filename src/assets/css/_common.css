@@ -55,7 +55,7 @@
 
 /* 한줄효과 */
 .ellipsis{
-  width:100px;
+  width:60px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -133,7 +133,7 @@
 .ballon {
   display: none;
   position: absolute;
-  width: 115px;
+  min-width: 115px;
   left: 50%;
   top: -53px;
   text-align: center;
@@ -142,6 +142,8 @@
   color: white;
   border-radius: 5px;
   padding: 5px 5.5px;
+  z-index: 999;
+  white-space: nowrap;
 }
 
 .ballon:after {

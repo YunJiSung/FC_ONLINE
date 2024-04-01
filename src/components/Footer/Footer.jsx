@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer id="footer">
+    <footer id="footer" role='contentinfo'>
       <div className="container">
         <ul className='footer__nav'>
           {footerNav.map((el, key) => (

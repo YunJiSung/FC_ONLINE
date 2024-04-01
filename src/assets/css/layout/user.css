@@ -37,35 +37,42 @@
   display: inline-block;
 }
 
-.user > .user__left .use__info {
+.user > .user__left .user__info {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 12px;
 }
 
-.user > .user__left .use__info img {
+.user > .user__left .user__info img {
   vertical-align: top;
   width: 100%;
   height: 100%;
 }
 
-.user > .user__left .use__info h2 {
+.user > .user__left .user__info h2 {
   font-size: 2rem;
   font-weight: bold;
 }
 
-.user > .user__left .use__info span {
+.user > .user__left .user__info span {
   font-size: 0.9rem;
   color: var(--black400);
+}
+
+
+.user > .user__left .user__trade {
+  margin-top: 8px;
+  background-color: var(--white);
 }
 
 .user__ad {
   width: 100%;
   height: 100px;
-  margin-top: 10px;
+  margin-top: 8px;
   background-color: rgba(0, 0, 0, 0.15);
 }
+
 .ad__01 {
   display: flex;
   align-items: center;
@@ -109,14 +116,23 @@
   background-color: var(--blue200);
 }
 
+/* user__match */
+.user__match {
+  width: 100%;
+}
+
+.user__right > .user__match > ul {
+  width: 100%;
+  height: 100%;
+}
+
 .user__right > .user__match > ul > li {
   width: 100%;
-  height: 100px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   flex: 1 1 0%;
   margin-bottom: 10px;
-  padding: 0 12px;
   background-color: var(--white);
 }
 
@@ -138,11 +154,21 @@
   color: var(--red600);
 }
 
+.user__right > .user__match li.draw {
+  border-left: 5px solid var(--black600);
+}
+
+.user__right > .user__match li.draw .matchType,
+.user__right > .user__match li.draw .matchResult {
+  color: var(--black600);
+}
+
 .user__right > .user__match .match__left {
   width: 100px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-left: 12px;
   font-size: 0.9rem;
 }
 
@@ -156,9 +182,12 @@
 }
 
 .user__right > .user__match .match__center {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex: 1 1 0%;
+  gap: 8px;
 }
 
 .user__right > .user__match .matchCenter__left {
@@ -182,22 +211,121 @@
   color: var(--red600);
 }
 
-.user__right > .user__match .matchCenter__center .player {
+.user__right > .user__match li.draw .matchCenter__left .rating {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--black600);
+}
+
+.user__right > .user__match .matchCenter__center {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--black800);
+}
+
+.user__right > .user__match .matchCenter__center ul {
   display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user__right > .user__match .matchCenter__center .score {
+  display: flex;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 5px;
+}
+
+.user__right > .user__match li.win .matchCenter__center .score {
+  background-color: var(--blue200);
+}
+
+.user__right > .user__match li.lose .matchCenter__center .score {
+  background-color: var(--red200);
+}
+
+.user__right > .user__match li.draw .matchCenter__center .score {
+  background-color: var(--black200);
+}
+
+.user__right > .user__match .matchCenter__right {
+  max-width: 400px;
+  flex: 1 1 0%;
+}
+
+.user__right > .user__match .matchCenter__right .player {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  gap: 2px;
+  font-size: 0.7rem;
 }
 
-.user__right > .user__match .matchCenter__center .player li {
-  width: 33.333%;
+.user__right > .user__match .matchCenter__right .player li {
+  width: 19%;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.user__right > .user__match .matchCenter__center .player img {
-  width: 1rem;
-  height: 1rem;
+.user__right > .user__match .matchCenter__right .player img {
+  max-width: 1rem;
+  margin-right: 4px;
+}
+
+.user__right > .user__match .matchCenter__right .player .ballon {
+  top: -35px;
+}
+
+.user__right > .user__match .matchCenter__right .player .ballon::after {
+  top: 27px;
+}
+
+.user__right > .user__match .matchCenter__right .player li:hover .name.ballon  {
+  display: inline-block;
 }
 
 .user__right > .user__match .matchCenter__right {
   text-align: left;
+}
+
+.user__right > .user__match .match__right {
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--blue);
+}
+
+.user__right > .user__match .match__right button {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user__right > .user__match li.win .match__right button {
+  background-color: var(--blue300);
+}
+
+.user__right > .user__match li.win .match__right button:hover {
+  background-color: var(--blue400);
+}
+
+.user__right > .user__match li.lose .match__right button {
+  background-color: var(--blue300);
+}
+
+.user__right > .user__match li.lose .match__right button:hover {
+  background-color: var(--blue400);
+}
+
+.user__right > .user__match li.draw .match__right button {
+  background-color: var(--black300);
+}
+
+.user__right > .user__match li.draw .match__right button:hover {
+  background-color: var(--black400);
 }
 
 /* 더보기 */
@@ -230,7 +358,7 @@
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .user {
     display: block;
   }
@@ -241,5 +369,44 @@
 
   .user__right {
     margin-top: 10px;
+  }
+
+  .user__right > .user__match > ul > li {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .user__right > .user__match .match__left {
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 0;
+    padding: 4px 4px 0 12px;
+  }
+
+  .user__right > .user__match .match__center {
+    padding: 0 4px 0 12px;
+    flex-wrap: wrap;
+  }
+
+  .user__right > .user__match .match__left .line50 {
+    display: none;
+  }
+
+  .user__right > .user__match .matchLeft__top {
+    display: flex;
+  }
+
+  .user__right > .user__match .matchLeft__top p:first-child {
+    margin-right: 4px;
+  }
+
+  .user__right > .user__match .matchCenter__right .player {
+    max-width: 100%;
+  }
+
+  .user__right > .user__match .match__right {
+    width: 100%;
+    height: 16px;
   }
 }

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Match from './Match';
 import Image from 'next/image';
 import { useData } from '@/context/DataContext';
+import Trade from './Trade';
 
 const User = ({ name }) => {
   const [data, setData] = useState('');
@@ -74,7 +75,7 @@ const User = ({ name }) => {
               ))}
             </ul>
           </div>
-          <div className="use__info">
+          <div className="user__info">
             <div className="rank">{!data.maxdivision || data.maxdivision.length === 0 ? '' : <Image src={`/images/rank/ico_${divisionImg(data.maxdivision[0]?.division)}.png`} width={100} height={100} alt='디비전 랭크' />}</div>
             <div className="info">
               <h2>{data.basic?.nickname}</h2>
@@ -85,6 +86,9 @@ const User = ({ name }) => {
         <aside className="user__ad">
           <div className="ad__01">AD</div>
         </aside>
+        <div className='user__trade'>
+          <Trade />
+        </div>
       </div>
       <div className="user__right">
         <Match name={name} ouid={data.basic?.ouid} searchName={data.basic?.nickname} matchList={matchData} />

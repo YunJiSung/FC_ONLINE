@@ -9,7 +9,7 @@ import { useData } from '@/context/DataContext';
 
 const Match = ({ name, ouid, searchName }) => {
   const [data, setData] = useState('');
-  const {spidData, matchData, seasonData} = useData();
+  const { spidData, matchData, seasonData } = useData();
   const [matchType, setMatchType] = useState(50);
   const [offset, setOffset] = useState('0');
   const [limit, setLimit] = useState('1');
@@ -88,20 +88,40 @@ const Match = ({ name, ouid, searchName }) => {
                     </ul>
                   </div>
                   <div className="matchCenter__center">
+                    <ul>
+                      <li>
+                        <Link href={`/user/${match.matchInfo[0]?.nickname}`}>{match.matchInfo[0]?.nickname}</Link>
+                      </li>
+                      <li className='score'>
+                        <span>{match.matchInfo[0]?.shoot.shootTotal}</span>
+                        <span>:</span>
+                        <span>{match.matchInfo[1]?.shoot.shootTotal}</span>
+                      </li>
+                      <li>
+                        <Link href={`/user/${match.matchInfo[1]?.nickname}`}>{match.matchInfo[1]?.nickname}</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="matchCenter__right">
                     <ul className="player">
                       {/* 시즌아이콘 */}
-                      {/* {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
+                      {match.matchInfo
+                        .find((item) => item.nickname === searchName)
+                        ?.player.map((el, key) => {
                           const playerName = spidData.find((player) => player.id === el.spId)?.name;
                           return (
                             <li key={key}>
-                              <Image src={seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.seasonImg} width={16} height={13} alt={`${seasonData.find((season) => season.seasonId === Math.floor(item.id / 1000000))?.className} ${item.name}`} />
-                              <span>{playerName}</span>
+                              <Image src={seasonData.find((season) => season.seasonId === Math.floor(el.spId / 1000000))?.seasonImg} width={16} height={13} alt={`${seasonData.find((season) => season.seasonId === Math.floor(el.spId / 1000000))?.className} ${el.name}`} />
+                              <span className="ellipsis">{playerName}</span>
+                              <div className="name ballon">
+                                <p>{playerName}</p>
+                              </div>
                             </li>
                           );
-                        })} */}
+                        })}
 
                       {/* 선수사진 */}
-                      {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
+                      {/* {match.matchInfo.find((item) => item.nickname === searchName)?.player.map((el, key) => {
                           const playerName = spidData.find((player) => player.id === el.spId)?.name;
                           return (
                             <li key={key}>
@@ -109,13 +129,14 @@ const Match = ({ name, ouid, searchName }) => {
                               <span>{playerName}</span>
                             </li>
                           );
-                        })}
+                        })} */}
                     </ul>
                   </div>
-                  <div className="matchCenter__right"></div>
                 </div>
                 <div className="match__right">
-                  <button type="button">&gt;</button>
+                  <button type="button">
+                    <Image src="/images/svg/arrow.svg" width={12} height={12} alt="화살표" />
+                  </button>
                 </div>
               </li>
             ))
