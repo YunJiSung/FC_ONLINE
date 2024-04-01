@@ -1,8 +1,9 @@
+'use client'
+
 import React from 'react'
 
-const page = () => {
-
-    // 경기 정보
+const Players = () => {
+  // 경기 정보
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,10 +22,10 @@ const page = () => {
 
     fetchData();
   }, [name, ouid, matchType, offset, limit]);
-  
+
   return (
-    <div>page</div>
+    <div>Players</div>
   )
 }
 
-export default page
+export default Players
