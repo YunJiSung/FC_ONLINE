@@ -1,31 +1,9 @@
-'use client'
+'use client';
 
-import React from 'react'
+import React from 'react';
 
 const Players = () => {
-  // 경기 정보
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.post(`/api/user/${decodeURIComponent(name)}`, {
-          ouid: ouid,
-          matchType: matchType,
-          offset: offset,
-          limit: limit,
-        });
-        const data = res.data;
-        setData(data);
-      } catch (error) {
-        console.error('Match API Error', error);
-      }
-    };
+  return <div>Players</div>;
+};
 
-    fetchData();
-  }, [name, ouid, matchType, offset, limit]);
-
-  return (
-    <div>Players</div>
-  )
-}
-
-export default Players
+export default Players;
